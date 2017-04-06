@@ -104,7 +104,7 @@ public:
 	}
 
 	bool isInPrimitive(Point3d point) {
-		return sign((center - point).len - radius) <= 0;
+		return sign((center - point).len() - radius) <= 0;
 	}
 
 private:

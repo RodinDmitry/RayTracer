@@ -8,6 +8,7 @@ class CTrianglePrimitive :public  IPrimitive {
 public:
 
 	CTrianglePrimitive() {}
+
 	CTrianglePrimitive(Point3d a, Point3d b, Point3d c, Attributes attr, Attributes anti) :
 		A(a), B(b), C(c), attributesNormal(attr), attributesAntiNormal(anti) {};
 

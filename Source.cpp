@@ -1,5 +1,5 @@
 #include<SFML\Graphics.hpp>
-#include"Canvas.h"
+
 #include"Renderer.h"
 #include"CTrianglePrimitive.h"
 #include"CRectanglePrimitive.h"
@@ -112,7 +112,7 @@ int main()
 	//rend.addPrimitive(redT);
 	rend.addPrimitive(light);
 	rend.addPrimitive(sphere);
-	rend.addPrimitive(blueR);
+	//rend.addPrimitive(blueR);
 	rend.addPrimitive(lightG);
 	//rend.addPrimitive(greem1);
 	//rend.addPrimitive(greem2);

@@ -4,7 +4,7 @@
 #include"Light.h"
 #include"Attributes.h"
 #include"CBoxPrimitive.h"
-
+#include<vector>
 
 
 

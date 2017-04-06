@@ -1,9 +1,11 @@
 #pragma once
 
-#include"geometry.h"
+
 #include<math.h>
 #include<iostream>
 
+
+const long double eps = 1e-7;
 
 struct Point3d {
 

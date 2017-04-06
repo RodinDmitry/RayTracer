@@ -1,5 +1,5 @@
 #pragma once
-
+#include<algorithm>
 
 struct Colour {
 public:
