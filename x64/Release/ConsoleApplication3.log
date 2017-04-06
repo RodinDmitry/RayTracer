@@ -1,0 +1,33 @@
+﻿  Source.cpp
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Colour.h(26): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Colour.h(27): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Colour.h(28): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Colour.h(40): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Colour.h(41): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Colour.h(42): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CBoxPrimitive.h(62): warning C4552: +: оператор не имеет результата; требуется оператор с побочным действием
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\C3DTree.h(152): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(95): warning C4244: инициализация: преобразование "long double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(96): warning C4244: инициализация: преобразование "long double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(116): warning C4244: аргумент: преобразование "long double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(243): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(244): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CTrianglePrimitive.h(79): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CTrianglePrimitive.h(82): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CRectanglePrimitive.h(80): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CRectanglePrimitive.h(83): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CPointPrimitive.h(51): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CSpherePrimitive.h(67): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CSpherePrimitive.h(82): warning C4101: result: неиспользованная локальная переменная
+Source.cpp(20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\thread_pool.h(110): warning C4101: e: неиспользованная локальная переменная
+  c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\thread_pool.h(103): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
+  c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\thread_pool.h(80): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void thread_pool<void>::loop(void)"
+  c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\C3DTree.h(51): note: см. ссылку на создание экземпляров класса шаблон при компиляции "thread_pool<void>"
+  Создание кода
+  41 of 1584 functions ( 2.6%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    15 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  ConsoleApplication3.vcxproj -> C:\Users\rodin\Documents\Visual Studio 2015\Projects\RayTracing\x64\Release\RayTracing.exe
+  ConsoleApplication3.vcxproj -> C:\Users\rodin\Documents\Visual Studio 2015\Projects\RayTracing\x64\Release\RayTracing.pdb (Full PDB)
