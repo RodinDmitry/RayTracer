@@ -18,6 +18,9 @@ public:
 		Plane front{ minPoint,Point3d{minPoint.x,minPoint.y,maxPoint.z},Point3d{minPoint.x,maxPoint.y,minPoint.z} };
 		Plane left{ minPoint,Point3d{ minPoint.x,minPoint.y,maxPoint.z },Point3d{ maxPoint.x,minPoint.y,minPoint.z } };
 		Plane down{ minPoint,Point3d{ minPoint.x,maxPoint.y,minPoint.z },Point3d{ maxPoint.x,minPoint.y,minPoint.z } };
+		Plane back{ maxPoint,Point3d{ maxPoint.x,minPoint.y,maxPoint.z },Point3d{ maxPoint.x,maxPoint.y,minPoint.z } };
+		Plane right{ maxPoint,Point3d{ minPoint.x,maxPoint.y,maxPoint.z },Point3d{ maxPoint.x,maxPoint.y,minPoint.z } };
+		Plane up{ maxPoint,Point3d{ minPoint.x,maxPoint.y,maxPoint.z },Point3d{ maxPoint.x,minPoint.y,maxPoint.z } };
 		Point3d intersection;
 		if (linePlaneIntersection(front, line, intersection)) {
 			if (pointInBox(intersection)) {
@@ -30,6 +33,21 @@ public:
 			}
 		}
 		if (linePlaneIntersection(down, line, intersection)) {
+			if (pointInBox(intersection)) {
+				return true;
+			}
+		}
+		if (linePlaneIntersection(back, line, intersection)) {
+			if (pointInBox(intersection)) {
+				return true;
+			}
+		}
+		if (linePlaneIntersection(right, line, intersection)) {
+			if (pointInBox(intersection)) {
+				return true;
+			}
+		}
+		if (linePlaneIntersection(up, line, intersection)) {
 			if (pointInBox(intersection)) {
 				return true;
 			}

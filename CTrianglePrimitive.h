@@ -24,11 +24,33 @@ public:
 			getNormalVector(intersectionPoint);
 		}
 		if (sign(line.getVector() ^ normalVector) < 0) {
+			if (attributesNormal.hasTexture) {
+				return calculateTextureColour(intersectionPoint, true);
+			}
 			return attributesNormal.colour;
 		}
 		else {
+			if (attributesNormal.hasTexture) {
+				return calculateTextureColour(intersectionPoint, false);
+			}
 			return attributesAntiNormal.colour;
 		}
+	}
+
+	Colour calculateTextureColour(Point3d point, bool isNormal) {
+		Point3d vect1 = B - A;
+		vect1 = vect1 * (1 / vect1.len());
+		Point3d vect2 = (C - A) - ((C - A) ^ vect1) * vect1;
+		vect2 = vect2 * (1 / vect2.len());
+		long double x = (point - A) ^ vect1;
+		long double y = (point - A) ^ vect2;
+		if (isNormal) {
+			return attributesNormal.getPoint(x, y);
+		}
+		else {
+			return attributesAntiNormal.getPoint(x, y);
+		}
+
 	}
 
 	Point3d getNormalVector(const Point3d& intersectionPoint) {

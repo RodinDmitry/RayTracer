@@ -5,33 +5,55 @@ c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplicati
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Colour.h(40): warning C4244: =: преобразование "float" в "int", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Colour.h(41): warning C4244: =: преобразование "float" в "int", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Colour.h(42): warning C4244: =: преобразование "float" в "int", возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CBoxPrimitive.h(62): warning C4552: +: оператор не имеет результата; требуется оператор с побочным действием
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CBoxPrimitive.h(80): warning C4552: +: оператор не имеет результата; требуется оператор с побочным действием
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\C3DTree.h(128): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(98): warning C4244: инициализация: преобразование "long double" в "float", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(99): warning C4244: инициализация: преобразование "long double" в "float", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(119): warning C4244: аргумент: преобразование "long double" в "float", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(238): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(239): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CTrianglePrimitive.h(89): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CTrianglePrimitive.h(92): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CRectanglePrimitive.h(88): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CRectanglePrimitive.h(91): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CTrianglePrimitive.h(111): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CTrianglePrimitive.h(114): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CRectanglePrimitive.h(110): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CRectanglePrimitive.h(113): warning C4244: return: преобразование "double" в "float", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CPointPrimitive.h(59): warning C4244: return: преобразование "double" в "float", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CPointPrimitive.h(63): warning C4244: return: преобразование "double" в "float", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CSpherePrimitive.h(81): warning C4244: return: преобразование "double" в "float", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CSpherePrimitive.h(105): warning C4101: result: неиспользованная локальная переменная
-Source.cpp(24): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+Source.cpp(26): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\thread_pool.h(110): warning C4101: e: неиспользованная локальная переменная
   c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\thread_pool.h(103): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
   c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\thread_pool.h(80): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void thread_pool<void>::loop(void)"
   c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\C3DTree.h(51): note: см. ссылку на создание экземпляров класса шаблон при компиляции "thread_pool<void>"
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(15164): warning C4307: *: переполнение целой константы
+  c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(15160): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
+  c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(24047): note: см. ссылку на создание экземпляров функции шаблон при компиляции "cimg_library::CImg<float>::_cimg_math_parser::_cimg_math_parser(const char *const ,const char *const ,const cimg_library::CImg<float> &,cimg_library::CImg<float> *const ,const cimg_library::CImgList<T> *const ,cimg_library::CImgList<T> *const ,const bool)"
+          with
+          [
+              T=float
+          ]
+  c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(24049): note: см. ссылку на создание экземпляров класса шаблон при компиляции "cimg_library::CImg<float>::_cimg_math_parser"
+  c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(24038): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
+  c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(24033): note: см. ссылку на создание экземпляров функции шаблон при компиляции "double cimg_library::CImg<float>::_eval(cimg_library::CImg<float> *const ,const char *const ,const double,const double,const double,const double,const cimg_library::CImgList<T> *const ,cimg_library::CImgList<T> *const ) const"
+          with
+          [
+              T=float
+          ]
+  c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(36186): note: см. ссылку на создание экземпляров класса шаблон при компиляции "cimg_library::CImg<float>"
+  c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(58969): note: см. ссылку на создание экземпляров класса шаблон при компиляции "cimg_library::CImg<wchar_t>"
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(16790): warning C4319: ~: нулевое расширение "unsigned int" в "double" большего размера
+  c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(15358): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
+  c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(15237): note: см. ссылку на создание экземпляров функции шаблон при компиляции "unsigned int cimg_library::CImg<float>::_cimg_math_parser::compile(char *,char *,const unsigned int,unsigned int *const )"
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(19921): warning C4319: ~: нулевое расширение "unsigned int" в "double" большего размера
+  c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(19919): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
+  c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(16789): note: см. ссылку на создание экземпляров функции шаблон при компиляции "double cimg_library::CImg<float>::_cimg_math_parser::mp_bitwise_not(cimg_library::CImg<float>::_cimg_math_parser &)"
   Создание кода
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\cmultipleprimitive.h(149): warning C4715: 
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\cmultipleprimitive.h(149): warning C4715: CMultiplePrimitive::getRefraction: значение возвращается не при всех путях выполнения
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\cmultipleprimitive.h(116): warning C4715: CMultiplePrimitive::getReflection: значение возвращается не при всех путях выполнения
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\cmultipleprimitive.h(91): warning C4715: CMultiplePrimitive::getTransparency: значение возвращается не при всех путях выполнения
-  76 of 1839 functions ( 4.1%) were compiled, the rest were copied from previous compilation.
+  137 of 2434 functions ( 5.6%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    16 functions had inline decision re-evaluated but remain unchanged
+    98 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   ConsoleApplication3.vcxproj -> C:\Users\rodin\Documents\Visual Studio 2015\Projects\RayTracing\x64\Release\RayTracing.exe
   ConsoleApplication3.vcxproj -> C:\Users\rodin\Documents\Visual Studio 2015\Projects\RayTracing\x64\Release\RayTracing.pdb (Full PDB)

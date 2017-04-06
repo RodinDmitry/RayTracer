@@ -47,8 +47,22 @@ public:
 		return heigth;
 	}
 
-	void addColour(Colour colour,int i,int j) {
-
+	Canvas SSAA4(Canvas& unsmoothed) {
+		Canvas result(width / 2, heigth / 2);
+		for (int i = 0; i < width; i += 2) {
+			for (int j = 0; j < heigth; j += 2) {
+				Colour resultColour;
+				unsmoothed.getColour(i, j).fraction(0.25);
+				resultColour.addColour(unsmoothed.getColour(i, j));
+				unsmoothed.getColour(i+1, j).fraction(0.25);
+				resultColour.addColour(unsmoothed.getColour(i+1, j));
+				unsmoothed.getColour(i, j+1).fraction(0.25);
+				resultColour.addColour(unsmoothed.getColour(i, j+1));
+				unsmoothed.getColour(i+1, j+1).fraction(0.25);
+				resultColour.addColour(unsmoothed.getColour(i+1, j+1));
+			}
+		}
+		return result;
 	}
 
 private:
