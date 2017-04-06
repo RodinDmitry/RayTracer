@@ -23,9 +23,15 @@ public:
 
 	virtual long double getTransparency(Line3d line) = 0;
 
+	virtual long double getTransparency(Line3d line,Point3d point) = 0;
+
 	virtual long double getReflection(Line3d line) = 0;
 
+	virtual long double getReflection(Line3d line,Point3d point) = 0;
+
 	virtual float getRefraction(Line3d line) = 0;
+
+	virtual float getRefraction(Line3d line,Point3d point) = 0;
 
 	virtual bool isLightSource() = 0;
 
@@ -33,9 +39,9 @@ public:
 
 	virtual CBoxPrimitive getBox() = 0;
 
-	virtual Point3d getPhantomReflectionSource(Point3d source) = 0;
+	virtual std::vector<Point3d> getPhantomReflectionSource(Point3d source) = 0;
 
-	virtual Point3d getPhantomRefractionSource(Point3d source,float k) = 0;
+	virtual std::vector<Point3d> getPhantomRefractionSource(Point3d source) = 0;
 
 	virtual std::vector<Point3d> getAllIntersections(Line3d line) = 0;
 

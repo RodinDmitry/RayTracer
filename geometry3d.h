@@ -1,6 +1,4 @@
 #pragma once
-
-
 #include<math.h>
 #include<iostream>
 
@@ -9,9 +7,9 @@ const long double eps = 1e-7;
 
 struct Point3d {
 
-	long double x;
-	long double y;
-	long double z;
+	long double x = 0;
+	long double y = 0;
+	long double z = 0;
 
 	Point3d() {};
 

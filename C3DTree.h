@@ -123,30 +123,6 @@ private:
 			return;
 		}
 
-		/*if (node->boxes.size() < 4) {
-		counter->fetch_sub(1);
-		return;
-		}*/
-
-		long double resSAH = node->box.getArea() * node->primitives.size();
-		//std::cout << resSAH << std::endl;
-		/*for (int axis = 0; axis < 3; ++axis) {
-		
-			std::sort(node->boxes.begin(), node->boxes.end(), BoxLessMax(axis));
-			for (int i = 0; i < node->boxes.size() - 1; ++i) {
-				long double leftValue = node->box.getAreaMaxLimit(axis, node->boxes[i].second.getMaxPoint(axis)) * i;
-				long double rightValue = 
-					(node->box.getArea() - node->box.getAreaMaxLimit(axis, node->boxes[i].second.getMaxPoint(axis))) 
-					* (node->boxes.size() - i);
-				//std::cout<<"candidate " << rightValue + leftValue << std::endl;
-				if (rightValue + leftValue < resSAH) {
-					resSAH = rightValue + leftValue;
-					splitAxis = axis;
-					sizeLeft = i + 1;
-				}
-			}
-		}*/
-
 		long double min = node->box.getMaxPoint(0) - node->box.getMinPoint(0);
 		splitAxis = 0;
 		sizeLeft = node->boxes.size() / 2;

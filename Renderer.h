@@ -86,6 +86,9 @@ private:
 
 	Colour calculatePointColour(Line3d line, Point3d point, 
 		int primitiveId, int recursiveDepth) {
+
+		//std::unique_lock<std::mutex> lock(addMutex);
+
 		if (recursiveDepth > RECURSIVE_DEPTH_MAX) {
 			return Colour();
 		}
@@ -160,22 +163,6 @@ private:
 	}
 
 	bool getClosestPoint(Line3d line,int& result, Point3d& resultPoint) {
-		/*long double min = 10e15;
-		bool flag = false;
-		for (int k = 0; k < primitives.size(); ++k) {
-			Point3d point;
-			if (primitives[k]->intersect(line, point)) {
-				if (sign((point - line.start) ^ (line.getVector())) > 0) {
-					if ((point - line.start).len() < min) {
-						result = k;
-						resultPoint = point;
-						min = (point - line.start).len();
-						flag = true;
-					}
-				}
-			}
-		}
-		return flag;*/
 		return tree.traceRay(line, result, resultPoint);
 	}
 
@@ -254,18 +241,20 @@ private:
 				Line3d line{ lightSources[j]->getCenter(),primitives[i]->getCenter() };
 				if (primitives[i]->getTransparency(line) > 0) {
 					addPhantomSource(i, j,
-						primitives[i]->getPhantomReflectionSource(lightSources[j]->getCenter()));
+						primitives[i]->getPhantomRefractionSource(lightSources[j]->getCenter()));
 				}
 			}
 		}
 	}
 
-	void addPhantomSource(int primitiveId,int sourceId,Point3d point) {
+	void addPhantomSource(int primitiveId,int sourceId,std::vector<Point3d> points) {
 		std::unique_lock<std::mutex> lock(addMutex);
-		phantomSources.push_back(phantomSource{ primitiveId,sourceId,point });
+		for (auto point : points) {
+			phantomSources.push_back(phantomSource{ primitiveId,sourceId,point });
+		}
 	}
 
-	int threadsNumber = 7;
+	int threadsNumber = 5;
 	C3DTree tree;
 	int width;
 	int height;

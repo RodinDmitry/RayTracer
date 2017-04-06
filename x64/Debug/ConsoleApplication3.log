@@ -1,7 +1,4 @@
-﻿  CTrianglePrimitive.cpp
-  Создание кода...
-  Компиляция...
-  Source.cpp
+﻿  Source.cpp
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\colour.h(26): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\colour.h(27): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\colour.h(28): warning C4244: +=: преобразование "float" в "int", возможна потеря данных
@@ -13,21 +10,21 @@ c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplicati
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\renderer.h(95): warning C4244: инициализация: преобразование "long double" в "float", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\renderer.h(96): warning C4244: инициализация: преобразование "long double" в "float", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\renderer.h(116): warning C4244: аргумент: преобразование "long double" в "float", возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\renderer.h(243): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\renderer.h(244): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\ctriangleprimitive.h(80): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\ctriangleprimitive.h(83): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\crectangleprimitive.h(80): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\crectangleprimitive.h(83): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\cpointprimitive.h(51): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\csphereprimitive.h(65): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\csphereprimitive.h(80): warning C4101: result: неиспользованная локальная переменная
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\renderer.h(227): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\renderer.h(228): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\ctriangleprimitive.h(89): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\ctriangleprimitive.h(92): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\crectangleprimitive.h(88): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\crectangleprimitive.h(91): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\cpointprimitive.h(59): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\cpointprimitive.h(63): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\csphereprimitive.h(81): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\csphereprimitive.h(105): warning C4101: result: неиспользованная локальная переменная
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\source.cpp(20): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\thread_pool.h(110): warning C4101: e: неиспользованная локальная переменная
   c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\thread_pool.h(103): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
   c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\thread_pool.h(80): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void thread_pool<void>::loop(void)"
   c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\c3dtree.h(51): note: см. ссылку на создание экземпляров класса шаблон при компиляции "thread_pool<void>"
-  Создание кода...
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\cboxprimitive.h(90): warning C4715: CBoxPrimitive::getMaxPoint: значение возвращается не при всех путях выполнения
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\cboxprimitive.h(99): warning C4715: CBoxPrimitive::getMinPoint: значение возвращается не при всех путях выполнения
   ConsoleApplication3.vcxproj -> C:\Users\rodin\Documents\Visual Studio 2015\Projects\RayTracing\x64\Debug\RayTracing.exe

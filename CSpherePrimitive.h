@@ -13,6 +13,13 @@ public:
 		long double length = sqrtl((center - ray.start).len2() - dist * dist);
 		long double delta = sqrtl(radius * radius - dist * dist);
 		length -= delta;
+
+		if (sign(length) <= 0) {
+			length += 2 * dist;
+			intersectionPoint = ray.start - ray.getVector() * (length / ray.getVector().len());
+			return true;
+		}
+
 		if (sign(dist - radius) > 0) {
 			return false;
 		}
@@ -44,9 +51,18 @@ public:
 		return attributes.transparency;
 	}
 
+	long double getTransparency(Line3d line,Point3d point) {
+		return getTransparency(line);
+	}
+
 	long double getReflection(Line3d line) {
 		return attributes.reflection;
 	}
+
+	long double getReflection(Line3d line,Point3d point) {
+		return getReflection(line);
+	}
+
 
 	bool isLightSource() {
 		return attributes.lightSource;
@@ -61,21 +77,30 @@ public:
 		
 	}
 
-	virtual float getRefraction(Line3d line) {
+	float getRefraction(Line3d line) {
 		return attributes.refraction;
 	}
 
-	Point3d getPhantomReflectionSource(Point3d source) {
+	float getRefraction(Line3d line,Point3d point) {
+		return getRefraction(line);
+	}
+
+
+	std::vector<Point3d> getPhantomReflectionSource(Point3d source) {
 		Point3d shift = source - center;
 		shift = shift * (1 / shift.len());
 		shift = shift * (radius / 2);
-		return center + shift;
+		std::vector<Point3d> resultVector;
+		resultVector.push_back(center + shift);
+		return resultVector;
 	}
 
-	Point3d getPhantomRefractionSource(Point3d source, float k) {
+	std::vector<Point3d> getPhantomRefractionSource(Point3d source) {
 		if (!isNormalVector) {
 			getNormalVector(center);
 		}
+		float k = getRefraction({ source,getCenter() });
+		std::vector<Point3d> resultVector;
 		Point3d resultPoint;
 		int result;
 		Line3d line{ source,(center + Point3d(radius / 2,radius / 2,radius / 2)) };
@@ -83,8 +108,8 @@ public:
 		Point3d refractionPoint = refractVector(resultPoint - source, getNormalVector(resultPoint), k);
 		lineIntersection(Line3d{ refractionPoint,refractionPoint * 2 }, 
 			Line3d{ source,center }, resultPoint);
-		return resultPoint;
-		//return center;
+		resultVector.push_back(resultPoint);
+		return resultVector;
 	}
 
 	std::vector<Point3d> getAllIntersections(Line3d line) {

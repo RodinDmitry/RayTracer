@@ -35,6 +35,14 @@ public:
 		return attributes.reflection;
 	}
 
+	long double getTransparency(Line3d line, Point3d point) {
+		return attributes.transparency;
+	}
+
+	long double getReflection(Line3d line, Point3d point) {
+		return attributes.reflection;
+	}
+
 	bool isLightSource() {
 		return attributes.lightSource;
 	}
@@ -47,16 +55,20 @@ public:
 		return CBoxPrimitive{ A,A };
 	}
 
-	virtual float getRefraction(Line3d line) {
+	float getRefraction(Line3d line) {
 		return attributes.refraction;
 	}
 
-	Point3d getPhantomReflectionSource(Point3d source) {
-		return A;
+	float getRefraction(Line3d line,Point3d point) {
+		return attributes.refraction;
 	}
 
-	Point3d getPhantomRefractionSource(Point3d source, float k) {
-		return A;
+	std::vector<Point3d> getPhantomReflectionSource(Point3d source) {
+		return { A };
+	}
+
+	std::vector<Point3d> getPhantomRefractionSource(Point3d source) {
+		return { A };
 	}
 
 	std::vector<Point3d> getAllIntersections(Line3d line) {

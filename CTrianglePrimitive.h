@@ -54,6 +54,10 @@ public:
 		}
 	}
 
+	long double getTransparency(Line3d line, Point3d point) {
+		return getTransparency(line);
+	}
+
 	long double getReflection(Line3d line) {
 		if (sign(line.getVector() ^ normalVector) < 0) {
 			return attributesNormal.reflection;
@@ -61,6 +65,10 @@ public:
 		else {
 			return attributesAntiNormal.reflection;
 		}
+	}
+
+	long double getReflection(Line3d line, Point3d point) {
+		return getReflection(line);
 	}
 
 	bool isLightSource() {
@@ -85,6 +93,10 @@ public:
 		}
 	}
 
+	float getRefraction(Line3d line, Point3d point) {
+		return getRefraction(line);
+	}
+
 	CBoxPrimitive getBox() {
 		return CBoxPrimitive{
 		Point3d{std::max(std::max(A.x,B.x),C.x),
@@ -96,23 +108,24 @@ public:
 	}
 
 
-	Point3d getPhantomReflectionSource(Point3d source) {
+	std::vector<Point3d> getPhantomReflectionSource(Point3d source) {
 		if (!isNormalVector) {
 			getNormalVector(A);
 		}
 		Point3d resultPoint = pointOnPlaneProjection(source, A, normalVector);
-		return source + 2 * (resultPoint - source);
+		return { source + 2 * (resultPoint - source) };
 	}
 
-	Point3d getPhantomRefractionSource(Point3d source, float k) {
+	std::vector<Point3d> getPhantomRefractionSource(Point3d source) {
 		if (!isNormalVector) {
 			getNormalVector(A);
 		}
+		float k = getRefraction({ source,getCenter() });
 		Point3d projectionPoint = pointOnPlaneProjection(source, A, normalVector);
 		Point3d refractionPoint = refractVector(A - source, normalVector, k);
 		Point3d result;
 		lineIntersection(Line3d{ refractionPoint,refractionPoint * 2 }, Line3d{ source,projectionPoint }, result);
-		return result;
+		return{ result };
 	}
 
 	std::vector<Point3d> getAllIntersections(Line3d line) {

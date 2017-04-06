@@ -5,9 +5,10 @@
 #include"CRectanglePrimitive.h"
 #include"CPointPrimitive.h"
 #include"CSpherePrimitive.h"
+#include"CMultiplePrimitive.h"
 
-const int RESOLUTION_WIDTH = 1378;
-const int RESOLUTION_HEIGHT = 768;
+const int RESOLUTION_WIDTH = 1380;
+const int RESOLUTION_HEIGHT = 788;
 
 sf::Color getColor(Colour colour) {
 	return sf::Color(colour.R, colour.G, colour.B, colour.A);
@@ -66,10 +67,11 @@ Attributes redA{ red,false,0,0,0,1 };
 Attributes greenA{ green,false,0,0,0,1 };
 Attributes blueA{ blue,false,0,0,0,1 };
 Attributes whiteA{ white,false,0,0,0,1 };
-Attributes greenM{ green,false,0,0,0.8,1 };
+Attributes greenM{ green,false,0,0,0.3,0.2 };
+Attributes redM{ red,false,0,0,0.8,1 };
 
 void createManyTriangles(Renderer& rend) {
-	long double shift = 10;
+	long double shift = 0.1;
 	for (long double i = 0; i < 100; i = i + shift) {
 		for (long double j = 0; j < 100; j = j + shift) {
 			CTrianglePrimitive* triangle = 
@@ -94,11 +96,19 @@ int main()
 
 
 	CTrianglePrimitive* redT = new CTrianglePrimitive{ a,b,c,redA,greenA };
-	CRectanglePrimitive* blueR = new CRectanglePrimitive{ {0,0,-2},{100,0,-2},{ 100,100,-2 },{ 0,100,-2 },whiteA,whiteA };
-	CRectanglePrimitive* greem1 = new CRectanglePrimitive{ { 25,0,-10 },{ 50,0,10 },{ 50,100,10 },{ 25,100,-10 },greenM,greenM };
-	CRectanglePrimitive* greem2 = new CRectanglePrimitive{ { 75,0,-10 },{ 50,0,10 },{ 50,100,10 },{ 75,100,-10 },greenM,greenM };
+	CRectanglePrimitive* blueR = new CRectanglePrimitive{ {0,0,5},{100,0,5},{ 100,100,5 },{ 0,100,5 },whiteA,whiteA };
+	//CRectanglePrimitive* greem1 = new CRectanglePrimitive{ { 25,0,-10 },{ 50,0,10 },{ 50,100,10 },{ 25,100,-10 },greenM,greenM };
+	//CRectanglePrimitive* greem2 = new CRectanglePrimitive{ { 75,0,-10 },{ 50,0,10 },{ 50,100,10 },{ 75,100,-10 },redM,redM };
 
-	CSpherePrimitive*  sphere = new CSpherePrimitive{ {50,50,-5},5,greenM };
+	CSpherePrimitive*  sphere = new CSpherePrimitive{ {40,40,-5},5,greenM };
+
+	CSpherePrimitive*  sphere1 = new CSpherePrimitive{ { 20,20,-5 },5,redA };
+	CSpherePrimitive*  sphere2 = new CSpherePrimitive{ { 22,22,-5 },5,blueA };
+	std::vector<bool> signum;
+	signum.push_back(1);
+	signum.push_back(1);
+	CMultiplePrimitive* mult = new CMultiplePrimitive{ {sphere1,sphere2},signum };
+	
 
 	CPointPrimitive* light = new CPointPrimitive{ s,source };
 	CPointPrimitive* lightG = new CPointPrimitive{ {0,0,-5},sourceGreen };
@@ -107,13 +117,14 @@ int main()
 
 	Renderer rend(RESOLUTION_WIDTH, RESOLUTION_HEIGHT);
 
-	createManyTriangles(rend);
+	//createManyTriangles(rend);
 
 	//rend.addPrimitive(redT);
 	rend.addPrimitive(light);
 	rend.addPrimitive(sphere);
+	rend.addPrimitive(mult);
 	//rend.addPrimitive(blueR);
-	rend.addPrimitive(lightG);
+	//rend.addPrimitive(lightG);
 	//rend.addPrimitive(greem1);
 	//rend.addPrimitive(greem2);
 	
