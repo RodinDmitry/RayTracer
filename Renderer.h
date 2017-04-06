@@ -113,7 +113,7 @@ private:
 
 	Colour getMainColour(Line3d line, Point3d startPoint, int primitiveId) {
 		Colour mainColour = primitives[primitiveId]->getColour(line, startPoint);
-		lightIntencity illumination = calculateIllumination(startPoint);
+		lightIntencity illumination = calculateIllumination(startPoint,primitiveId);
 		mainColour.fraction(illumination.redIntencity,
 			illumination.greenIntencity,
 			illumination.blueIntencity);
@@ -166,38 +166,46 @@ private:
 		return tree.traceRay(line, result, resultPoint);
 	}
 
-	lightIntencity calculateIllumination(Point3d start) {
-		return calculateNormalIllumination(start) + calculatePhantomIllumination(start);
+	lightIntencity calculateIllumination(Point3d start, int primitiveId) {
+		return calculateNormalIllumination(start, primitiveId) + calculatePhantomIllumination(start, primitiveId);
 	}
 
-	lightIntencity calculateNormalIllumination(Point3d start) {
+	lightIntencity calculateNormalIllumination(Point3d start, int primitiveId) {
 		lightIntencity totalIllumination;
 		for (int i = 0; i < lightSources.size(); ++i) {
 			Point3d resultPoint;
 			int result;
 			Line3d line{ start, lightSources[i]->getCenter() };
+			Point3d normal = primitives[primitiveId]->getNormalVector(start);
+			long double cos = fabsl(normal ^ line.getVector());
+			cos /= normal.len();
+			cos /= line.getVector().len();
 			if (getClosestPoint(line, result, resultPoint)) {
 				if (sign((resultPoint - start).len() - line.getVector().len()) >= 0) {
 					Colour sourceColour = lightSources[i]->getColour(Line3d{ start,resultPoint },resultPoint);
 					long double intencity = lightSources[i]->getIntencity(Line3d{start,resultPoint});
 					totalIllumination.redIntencity += (long double)sourceColour.R 
-						* intencity / ((long double)255 * line.getVector().len2());
+						* intencity * cos / ((long double)255 * line.getVector().len2());
 					totalIllumination.greenIntencity += (long double)sourceColour.G 
-						* intencity / ((long double)255 * line.getVector().len2());
+						* intencity * cos / ((long double)255 * line.getVector().len2());
 					totalIllumination.blueIntencity += (long double)sourceColour.B 
-						* intencity / ((long double)255 * line.getVector().len2());
+						* intencity * cos / ((long double)255 * line.getVector().len2());
 				}
 			}
 		}
 		return totalIllumination;
 	}
 
-	lightIntencity calculatePhantomIllumination(Point3d start) {
+	lightIntencity calculatePhantomIllumination(Point3d start, int primitiveId) {
 		lightIntencity totalIllumination;
 		for (int i = 0; i < phantomSources.size(); ++i) {
 			Point3d resultPoint;
 			int result;
 			Line3d line{ start, phantomSources[i].point };
+			Point3d normal = primitives[primitiveId]->getNormalVector(start);
+			long double cos = fabsl(normal ^ line.getVector());
+			cos /= normal.len();
+			cos /= line.getVector().len();
 			if (getClosestPoint(line, result, resultPoint)) {
 				if (result == phantomSources[i].primitiveId 
 					&& ((primitives[phantomSources[i].primitiveId]->getReflection(line) > 0))
@@ -213,11 +221,11 @@ private:
 							long double intencity = 
 								lightSources[phantomSources[i].sourceId]->getIntencity(newLine);
 							totalIllumination.redIntencity += (long double)std::min(sourceColour.R,objColour.R)
-								* intencity / ((long double)255 * line.getVector().len2());
+								* intencity * cos / ((long double)255 * line.getVector().len2());
 							totalIllumination.greenIntencity += (long double)std::min(sourceColour.G, objColour.G)
-								* intencity / ((long double)255 * line.getVector().len2());
+								* intencity * cos / ((long double)255 * line.getVector().len2());
 							totalIllumination.blueIntencity += (long double)std::min(sourceColour.B, objColour.B)
-								* intencity / ((long double)255 * line.getVector().len2());
+								* intencity * cos / ((long double)255 * line.getVector().len2());
 						}
 					}
 				}
@@ -227,8 +235,8 @@ private:
 	}
 
 	void buildPhantomSources(int id) {
-		int from = primitives.size() * id / 8;
-		int to = primitives.size() * (id + 1) / 8;
+		int from = primitives.size() * id / threadsNumber;
+		int to = primitives.size() * (id + 1) / threadsNumber;
 		for (int i = from; i < to; ++i) {
 			for (int j = 0; j < lightSources.size(); ++j) {
 				Line3d line{ lightSources[j]->getCenter(),primitives[i]->getCenter() };

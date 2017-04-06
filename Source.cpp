@@ -7,6 +7,9 @@
 #include"CSpherePrimitive.h"
 #include"CMultiplePrimitive.h"
 
+
+
+
 const int RESOLUTION_WIDTH = 1380;
 const int RESOLUTION_HEIGHT = 788;
 
@@ -67,7 +70,7 @@ Attributes redA{ red,false,0,0,0,1 };
 Attributes greenA{ green,false,0,0,0,1 };
 Attributes blueA{ blue,false,0,0,0,1 };
 Attributes whiteA{ white,false,0,0,0,1 };
-Attributes greenM{ green,false,0,0,0.3,0.2 };
+Attributes greenM{ green,false,0,0,0.8,1 };
 Attributes redM{ red,false,0,0,0.8,1 };
 
 void createManyTriangles(Renderer& rend) {
@@ -84,7 +87,7 @@ void createManyTriangles(Renderer& rend) {
 int main()
 {
 
-
+	
 	Attributes source{ white,true,500,0,0,0 };
 	Attributes sourceGreen{ green,true,500,0,0,0 };
 
@@ -97,13 +100,13 @@ int main()
 
 	CTrianglePrimitive* redT = new CTrianglePrimitive{ a,b,c,redA,greenA };
 	CRectanglePrimitive* blueR = new CRectanglePrimitive{ {0,0,5},{100,0,5},{ 100,100,5 },{ 0,100,5 },whiteA,whiteA };
-	//CRectanglePrimitive* greem1 = new CRectanglePrimitive{ { 25,0,-10 },{ 50,0,10 },{ 50,100,10 },{ 25,100,-10 },greenM,greenM };
-	//CRectanglePrimitive* greem2 = new CRectanglePrimitive{ { 75,0,-10 },{ 50,0,10 },{ 50,100,10 },{ 75,100,-10 },redM,redM };
+	CRectanglePrimitive* greem1 = new CRectanglePrimitive{ { 25,0,-10 },{ 25,0,10 },{ 25,100,10 },{ 25,100,-10 },greenM,greenM };
+	CRectanglePrimitive* greem2 = new CRectanglePrimitive{ { 75,0,-10 },{ 75,0,10 },{ 75,100,10 },{ 75,100,-10 },redM,redM };
 
 	CSpherePrimitive*  sphere = new CSpherePrimitive{ {40,40,-5},5,greenM };
 
-	CSpherePrimitive*  sphere1 = new CSpherePrimitive{ { 20,20,-5 },5,redA };
-	CSpherePrimitive*  sphere2 = new CSpherePrimitive{ { 22,22,-5 },5,blueA };
+	CSpherePrimitive*  sphere1 = new CSpherePrimitive{ { 50,20,-5 },5,redA };
+	CSpherePrimitive*  sphere2 = new CSpherePrimitive{ { 47,22,-5 },5,blueA };
 	std::vector<bool> signum;
 	signum.push_back(1);
 	signum.push_back(1);
@@ -121,12 +124,12 @@ int main()
 
 	//rend.addPrimitive(redT);
 	rend.addPrimitive(light);
-	rend.addPrimitive(sphere);
+	//rend.addPrimitive(sphere);
 	rend.addPrimitive(mult);
-	//rend.addPrimitive(blueR);
+	rend.addPrimitive(blueR);
 	//rend.addPrimitive(lightG);
-	//rend.addPrimitive(greem1);
-	//rend.addPrimitive(greem2);
+	rend.addPrimitive(greem1);
+	rend.addPrimitive(greem2);
 	
 	rend.setCamera(Point3d{ 50,50,-1000 });
 
@@ -134,6 +137,13 @@ int main()
 	
 	sf::VertexArray dots = buildImage(canvas);
 	showImage(dots);
-
+	
+	//CImg<unsigned char> img("C:\\Users\\rodin\\Documents\\Visual Studio 2015\\Projects\\RayTracing\\ConsoleApplication3\\image.jpg");
+	//img.blur(2.5);
+	//CImgDisplay main_disp(img, "Click a point");
+	//sf::Image img;
+	//img.create(100, 100);
+	//img.saveToFile("D://image.png");
+	//bool flag = img.loadFromFile("cs3n2c16.png");
 	return 0;
 }

@@ -28,7 +28,7 @@ public:
 			intersectionPoint = ray.start + ray.getVector() * (length / ray.getVector().len());
 		}
 		else {
-			length += 2 * dist;
+			length = 2 * dist - length;
 			intersectionPoint = ray.start - ray.getVector() * (length / ray.getVector().len());
 		}
 		return true;
