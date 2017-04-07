@@ -9,7 +9,7 @@ public:
 
 	CTrianglePrimitive() {}
 
-	CTrianglePrimitive(Point3d a, Point3d b, Point3d c, Attributes attr, Attributes anti) :
+	CTrianglePrimitive(Point3d a, Point3d b, Point3d c, Attributes* attr, Attributes* anti) :
 		A(a), B(b), C(c), attributesNormal(attr), attributesAntiNormal(anti) {};
 
 	bool intersect(Line3d& ray, Point3d& intersectionPoint) {
@@ -24,16 +24,16 @@ public:
 			getNormalVector(intersectionPoint);
 		}
 		if (sign(line.getVector() ^ normalVector) < 0) {
-			if (attributesNormal.hasTexture) {
+			if (attributesNormal->hasTexture) {
 				return calculateTextureColour(intersectionPoint, true);
 			}
-			return attributesNormal.colour;
+			return attributesNormal->colour;
 		}
 		else {
-			if (attributesNormal.hasTexture) {
+			if (attributesNormal->hasTexture) {
 				return calculateTextureColour(intersectionPoint, false);
 			}
-			return attributesAntiNormal.colour;
+			return attributesAntiNormal->colour;
 		}
 	}
 
@@ -45,10 +45,10 @@ public:
 		long double x = (point - A) ^ vect1;
 		long double y = (point - A) ^ vect2;
 		if (isNormal) {
-			return attributesNormal.getPoint(x, y);
+			return attributesNormal->getPoint(x, y);
 		}
 		else {
-			return attributesAntiNormal.getPoint(x, y);
+			return attributesAntiNormal->getPoint(x, y);
 		}
 
 	}
@@ -69,10 +69,10 @@ public:
 
 	long double getTransparency(Line3d line) {
 		if (sign(line.getVector() ^ normalVector) < 0) {
-			return attributesNormal.transparency;
+			return attributesNormal->transparency;
 		}
 		else {
-			return attributesAntiNormal.transparency;
+			return attributesAntiNormal->transparency;
 		}
 	}
 
@@ -82,10 +82,10 @@ public:
 
 	long double getReflection(Line3d line) {
 		if (sign(line.getVector() ^ normalVector) < 0) {
-			return attributesNormal.reflection;
+			return attributesNormal->reflection;
 		}
 		else {
-			return attributesAntiNormal.reflection;
+			return attributesAntiNormal->reflection;
 		}
 	}
 
@@ -94,24 +94,24 @@ public:
 	}
 
 	bool isLightSource() {
-		return attributesAntiNormal.lightSource || attributesNormal.lightSource;
+		return attributesAntiNormal->lightSource || attributesNormal->lightSource;
 	}
 
 	long double getIntencity(Line3d line) {
 		if (sign(line.getVector() ^ normalVector) < 0) {
-			return attributesNormal.intensity;
+			return attributesNormal->intensity;
 		}
 		else {
-			return attributesAntiNormal.intensity;
+			return attributesAntiNormal->intensity;
 		}
 	}
 
 	float getRefraction(Line3d line) {
 		if (sign(line.getVector() ^ normalVector) < 0) {
-			return attributesNormal.refraction;
+			return attributesNormal->refraction;
 		}
 		else {
-			return attributesAntiNormal.refraction;
+			return attributesAntiNormal->refraction;
 		}
 	}
 
@@ -168,8 +168,8 @@ private:
 	Point3d A;
 	Point3d B;
 	Point3d C;
-	Attributes attributesNormal;
-	Attributes attributesAntiNormal;
+	Attributes* attributesNormal;
+	Attributes* attributesAntiNormal;
 
 
 	Point3d normalVector;

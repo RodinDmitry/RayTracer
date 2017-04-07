@@ -5,7 +5,7 @@ class CSpherePrimitive :public  IPrimitive {
 
 public:
 	CSpherePrimitive() {}
-	CSpherePrimitive(Point3d center, long double radius, Attributes attr) 
+	CSpherePrimitive(Point3d center, long double radius, Attributes* attr) 
 		:center(center), radius(radius), attributes(attr) {};
 
 	bool intersect( Line3d& ray, Point3d& intersectionPoint) {
@@ -36,7 +36,7 @@ public:
 	}
 
 	Colour getColour(Line3d line, const Point3d intersectionPoint) {
-		return attributes.colour;
+		return attributes->colour;
 	}
 
 	Point3d getNormalVector(const Point3d& intersectionPoint) {
@@ -48,7 +48,7 @@ public:
 	}
 
 	long double getTransparency(Line3d line) {
-		return attributes.transparency;
+		return attributes->transparency;
 	}
 
 	long double getTransparency(Line3d line,Point3d point) {
@@ -56,7 +56,7 @@ public:
 	}
 
 	long double getReflection(Line3d line) {
-		return attributes.reflection;
+		return attributes->reflection;
 	}
 
 	long double getReflection(Line3d line,Point3d point) {
@@ -65,11 +65,11 @@ public:
 
 
 	bool isLightSource() {
-		return attributes.lightSource;
+		return attributes->lightSource;
 	}
 
 	long double getIntencity(Line3d line) {
-		return attributes.intensity;
+		return attributes->intensity;
 	}
 
 	CBoxPrimitive getBox() {
@@ -78,7 +78,7 @@ public:
 	}
 
 	float getRefraction(Line3d line) {
-		return attributes.refraction;
+		return attributes->refraction;
 	}
 
 	float getRefraction(Line3d line,Point3d point) {
@@ -136,7 +136,7 @@ private:
 
 	Point3d center;
 	long double radius;
-	Attributes attributes;
+	Attributes* attributes;
 
 
 	Point3d normalVector;

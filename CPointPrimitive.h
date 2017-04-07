@@ -5,7 +5,7 @@ class CPointPrimitive :public  IPrimitive {
 
 public:
 	CPointPrimitive() {}
-	CPointPrimitive(Point3d a,Attributes attr) :A(a), attributes(attr) {};
+	CPointPrimitive(Point3d a,Attributes* attr) :A(a), attributes(attr) {};
 
 	bool intersect( Line3d& ray, Point3d& intersectionPoint) {
 		intersectionPoint = A;
@@ -16,7 +16,7 @@ public:
 	}
 
 	Colour getColour(Line3d line, const Point3d intersectionPoint) {
-		return attributes.colour;
+		return attributes->colour;
 	}
 
 	Point3d getNormalVector(const Point3d& intersectionPoint) {
@@ -28,27 +28,27 @@ public:
 	}
 
 	long double getTransparency(Line3d line) {
-		return attributes.transparency;
+		return attributes->transparency;
 	}
 
 	long double getReflection(Line3d line) {
-		return attributes.reflection;
+		return attributes->reflection;
 	}
 
 	long double getTransparency(Line3d line, Point3d point) {
-		return attributes.transparency;
+		return attributes->transparency;
 	}
 
 	long double getReflection(Line3d line, Point3d point) {
-		return attributes.reflection;
+		return attributes->reflection;
 	}
 
 	bool isLightSource() {
-		return attributes.lightSource;
+		return attributes->lightSource;
 	}
 
 	long double getIntencity(Line3d line) {
-		return attributes.intensity;
+		return attributes->intensity;
 	}
 	
 	CBoxPrimitive getBox() {
@@ -56,11 +56,11 @@ public:
 	}
 
 	float getRefraction(Line3d line) {
-		return attributes.refraction;
+		return attributes->refraction;
 	}
 
 	float getRefraction(Line3d line,Point3d point) {
-		return attributes.refraction;
+		return attributes->refraction;
 	}
 
 	std::vector<Point3d> getPhantomReflectionSource(Point3d source) {
@@ -91,7 +91,7 @@ private:
 
 	Point3d A;
 
-	Attributes attributes;
+	Attributes* attributes;
 
 
 };
