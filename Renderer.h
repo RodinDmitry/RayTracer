@@ -101,8 +101,6 @@ private:
 	Colour calculatePointColour(Line3d line, Point3d point, 
 		int primitiveId, int recursiveDepth) {
 
-		//std::unique_lock<std::mutex> lock(addMutex);
-
 		if (recursiveDepth > RECURSIVE_DEPTH_MAX) {
 			return Colour();
 		}
@@ -181,7 +179,8 @@ private:
 	}
 
 	lightIntencity calculateIllumination(Point3d start, int primitiveId) {
-		return calculateNormalIllumination(start, primitiveId) + calculatePhantomIllumination(start, primitiveId);
+		return calculateNormalIllumination(start, primitiveId)
+			+ calculatePhantomIllumination(start, primitiveId);
 	}
 
 	lightIntencity calculateNormalIllumination(Point3d start, int primitiveId) {

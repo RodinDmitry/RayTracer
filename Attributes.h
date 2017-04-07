@@ -41,8 +41,8 @@ struct Attributes {
 		CImg<unsigned char>& im = *image;
 		int width = image->width();
 		int height = image->height();
-		long double xMN = 0.2;
-		long double yMN = 0.2;
+		long double xMN = 20;
+		long double yMN = 20;
 		int red = (int)im((int)round(x * xMN) % width, (int)round(y * yMN) % height, 0, 0);
 		int green = (int)im((int)round(x * xMN) % width, (int)round(y * yMN) % height, 0, 1);
 		int blue = (int)im((int)round(x * xMN) % width, (int)round(y * yMN) % height, 0, 2);

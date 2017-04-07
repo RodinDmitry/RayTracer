@@ -49,13 +49,6 @@ void showImage(sf::VertexArray image) {
 	}
 }
 
-
-void print_num(int i, int j)
-{
-	std::cout << i << ' ' << j << '\n';
-}
-
-
 /*Attributes(Colour colour, bool isSource
 , long double intensity, double transparency,
 double reflection, double refraction) :colour(colour),
@@ -82,8 +75,12 @@ Attributes evilSun
 { "C:\\Users\\rodin\\Documents\\Visual Studio 2015\\Projects\\RayTracing\\ConsoleApplication3\\image.bmp"
 ,false,0,0,0,1 };
 
+Attributes shedule
+{ "C:\\Users\\rodin\\Documents\\Visual Studio 2015\\Projects\\RayTracing\\ConsoleApplication3\\shedule.bmp"
+,false,0,0,0,1 };
+
 void createManyTriangles(Renderer& rend) {
-	long double shift = 0.1;
+	long double shift = 5;
 	for (long double i = 0; i < 100; i = i + shift) {
 		for (long double j = 0; j < 100; j = j + shift) {
 			CTrianglePrimitive* triangle =
@@ -115,11 +112,13 @@ int main()
 	CRectanglePrimitive* blueR = new CRectanglePrimitive{ 
 		{ 0,0,5 },{ 100,0,5 },{ 100,100,5 },{ 0,100,5 },&evilSun,&evilSun};
 	CRectanglePrimitive* greem1 = new CRectanglePrimitive{ 
-		{ 25,0,-10 },{ 25,0,10 },{ 25,100,10 },{ 25,100,-10 },&greenM,&greenM };
+		{ 25,0,-10 },{ 50,0,10 },{ 50,100,10 },{ 25,100,-10 },&evilSun,&evilSun };
 	CRectanglePrimitive* greem2 = new CRectanglePrimitive{ 
-		{ 75,0,-10 },{ 75,0,10 },{ 75,100,10 },{ 75,100,-10 },&redM,&redM };
+		{ 75,0,-10 },{ 50,0,10 },{ 50,100,10 },{ 75,100,-10 },&redM,&redM };
 
-	CSpherePrimitive*  sphere = new CSpherePrimitive{ { 50,24,-5 },5,&redM };
+	Attributes whiteT{ white,false,0,0.8,0,1 };
+
+	CSpherePrimitive*  sphere = new CSpherePrimitive{ { 50,50,-20 },5,&whiteT };
 
 	CSpherePrimitive*  sphere1 = new CSpherePrimitive{ { 50,20,-5 },5,&redA };
 	CSpherePrimitive*  sphere2 = new CSpherePrimitive{ { 47,22,-5 },5,&blueA };
@@ -134,16 +133,16 @@ int main()
 
 	Renderer rend(RESOLUTION_WIDTH, RESOLUTION_HEIGHT);
 
-	//createManyTriangles(rend);
+	createManyTriangles(rend);
 
 	//rend.addPrimitive(redT);
 	rend.addPrimitive(light);
-	//rend.addPrimitive(sphere);
-	//rend.addPrimitive(mult);
-	rend.addPrimitive(blueR);
+	rend.addPrimitive(sphere);
+	rend.addPrimitive(mult);
+	//rend.addPrimitive(blueR);
 
-	rend.addPrimitive(greem1);
-	rend.addPrimitive(greem2);
+	//rend.addPrimitive(greem1);
+	//rend.addPrimitive(greem2);
 
 	rend.setCamera(Point3d{ 50,50,-1000 });
 
