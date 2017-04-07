@@ -7,11 +7,11 @@ c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplicati
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Colour.h(42): warning C4244: =: преобразование "float" в "int", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CBoxPrimitive.h(80): warning C4552: +: оператор не имеет результата; требуется оператор с побочным действием
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\C3DTree.h(128): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(98): warning C4244: инициализация: преобразование "long double" в "float", возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(99): warning C4244: инициализация: преобразование "long double" в "float", возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(119): warning C4244: аргумент: преобразование "long double" в "float", возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(238): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(239): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(112): warning C4244: инициализация: преобразование "long double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(113): warning C4244: инициализация: преобразование "long double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(133): warning C4244: аргумент: преобразование "long double" в "float", возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(252): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\Renderer.h(253): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CTrianglePrimitive.h(111): warning C4244: return: преобразование "double" в "float", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CTrianglePrimitive.h(114): warning C4244: return: преобразование "double" в "float", возможна потеря данных
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CRectanglePrimitive.h(110): warning C4244: return: преобразование "double" в "float", возможна потеря данных
@@ -48,12 +48,12 @@ c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplicati
   c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(19919): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
   c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\CImg.h(16789): note: см. ссылку на создание экземпляров функции шаблон при компиляции "double cimg_library::CImg<float>::_cimg_math_parser::mp_bitwise_not(cimg_library::CImg<float>::_cimg_math_parser &)"
   Создание кода
-c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\cmultipleprimitive.h(149): warning C4715: CMultiplePrimitive::getRefraction: значение возвращается не при всех путях выполнения
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\cmultipleprimitive.h(116): warning C4715: CMultiplePrimitive::getReflection: значение возвращается не при всех путях выполнения
+c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\cmultipleprimitive.h(149): warning C4715: CMultiplePrimitive::getRefraction: значение возвращается не при всех путях выполнения
 c:\users\rodin\documents\visual studio 2015\projects\raytracing\consoleapplication3\cmultipleprimitive.h(91): warning C4715: CMultiplePrimitive::getTransparency: значение возвращается не при всех путях выполнения
-  139 of 2444 functions ( 5.7%) were compiled, the rest were copied from previous compilation.
+  138 of 2472 functions ( 5.6%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    96 functions had inline decision re-evaluated but remain unchanged
+    109 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   ConsoleApplication3.vcxproj -> C:\Users\rodin\Documents\Visual Studio 2015\Projects\RayTracing\x64\Release\RayTracing.exe
   ConsoleApplication3.vcxproj -> C:\Users\rodin\Documents\Visual Studio 2015\Projects\RayTracing\x64\Release\RayTracing.pdb (Full PDB)

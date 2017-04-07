@@ -11,6 +11,7 @@
 #include<queue>
 #include<mutex>
 
+
 const int RECURSIVE_DEPTH_MAX = 5;
 
 class Renderer {
@@ -20,6 +21,19 @@ public:
 		,canvas(width, height), camera(0,0,0) {
 		canvas.buildCanvas();
 	};
+
+	~Renderer() {
+		for (int i = 0; i < primitives.size(); ++i) {
+			delete primitives[i];
+		}
+		for (int i = 0; i < attributes.size(); ++i) {
+			delete attributes[i];
+		}
+	}
+
+	void addAttribute(Attributes*  attribute) {
+		attributes.push_back(attribute);
+	}
 
 	void addPrimitive(IPrimitive* primitive) {
 		primitives.push_back(primitive);
@@ -279,6 +293,7 @@ private:
 	};
 
 	std::vector<phantomSource> phantomSources;
+	std::vector<Attributes*> attributes;
 
 	Point3d camera;
 

@@ -75,15 +75,23 @@ Attributes whiteA{ white,false,0,0,0,1 };
 Attributes greenM{ green,false,0,0,0.8,1 };
 Attributes redM{ red,false,0,0,0.8,1 };
 
-Attributes rainbow{ "C:\\Users\\rodin\\Documents\\Visual Studio 2015\\Projects\\RayTracing\\ConsoleApplication3\\cs3n2c16.bmp",false,0,0,0,1 };
-Attributes evilSun{ "C:\\Users\\rodin\\Documents\\Visual Studio 2015\\Projects\\RayTracing\\ConsoleApplication3\\image.bmp",false,0,0,0,1 };
+Attributes rainbow
+{ "C:\\Users\\rodin\\Documents\\Visual Studio 2015\\Projects\\RayTracing\\ConsoleApplication3\\cs3n2c16.bmp"
+,false,0,0,0,1 };
+Attributes evilSun
+{ "C:\\Users\\rodin\\Documents\\Visual Studio 2015\\Projects\\RayTracing\\ConsoleApplication3\\image.bmp"
+,false,0,0,0,1 };
 
 void createManyTriangles(Renderer& rend) {
-	long double shift = 5;
+	long double shift = 0.1;
 	for (long double i = 0; i < 100; i = i + shift) {
 		for (long double j = 0; j < 100; j = j + shift) {
 			CTrianglePrimitive* triangle =
-				new CTrianglePrimitive{ Point3d{ i,j,0 },Point3d{ i + shift,j,0 },Point3d{ i,j + shift,0 },&rainbow,&rainbow };
+				new CTrianglePrimitive{ Point3d{ i,j,0 },
+				Point3d{ i + shift,j,0 },
+				Point3d{ i,j + shift,0 },
+				&rainbow,
+				&rainbow };
 			rend.addPrimitive(triangle);
 		}
 	}
@@ -104,35 +112,38 @@ int main()
 
 
 	CTrianglePrimitive* redT = new CTrianglePrimitive{ a,b,c,&redA,&greenA };
-	CRectanglePrimitive* blueR = new CRectanglePrimitive{ { 0,0,5 },{ 100,0,5 },{ 100,100,5 },{ 0,100,5 },&evilSun,&evilSun };
-	CRectanglePrimitive* greem1 = new CRectanglePrimitive{ { 25,0,-10 },{ 25,0,10 },{ 25,100,10 },{ 25,100,-10 },&greenM,&greenM };
-	CRectanglePrimitive* greem2 = new CRectanglePrimitive{ { 75,0,-10 },{ 75,0,10 },{ 75,100,10 },{ 75,100,-10 },&redM,&redM };
+	CRectanglePrimitive* blueR = new CRectanglePrimitive{ 
+		{ 0,0,5 },{ 100,0,5 },{ 100,100,5 },{ 0,100,5 },&evilSun,&evilSun};
+	CRectanglePrimitive* greem1 = new CRectanglePrimitive{ 
+		{ 25,0,-10 },{ 25,0,10 },{ 25,100,10 },{ 25,100,-10 },&greenM,&greenM };
+	CRectanglePrimitive* greem2 = new CRectanglePrimitive{ 
+		{ 75,0,-10 },{ 75,0,10 },{ 75,100,10 },{ 75,100,-10 },&redM,&redM };
 
-	CSpherePrimitive*  sphere = new CSpherePrimitive{ { 40,40,-5 },5,&greenM };
+	CSpherePrimitive*  sphere = new CSpherePrimitive{ { 50,24,-5 },5,&redM };
 
 	CSpherePrimitive*  sphere1 = new CSpherePrimitive{ { 50,20,-5 },5,&redA };
 	CSpherePrimitive*  sphere2 = new CSpherePrimitive{ { 47,22,-5 },5,&blueA };
 
-	CMultiplePrimitive* mult = new CMultiplePrimitive{ { sphere1,sphere2 },{true,true} };
+	CMultiplePrimitive* mult = new CMultiplePrimitive{ { sphere1,sphere2},{true,true} };
 
 
 	CPointPrimitive* light = new CPointPrimitive{ s,&source };
-	CPointPrimitive* lightG = new CPointPrimitive{ { 25,25,-5 },&sourceGreen };
+
 
 
 
 	Renderer rend(RESOLUTION_WIDTH, RESOLUTION_HEIGHT);
 
-	createManyTriangles(rend);
+	//createManyTriangles(rend);
 
 	//rend.addPrimitive(redT);
 	rend.addPrimitive(light);
 	//rend.addPrimitive(sphere);
 	//rend.addPrimitive(mult);
-	//rend.addPrimitive(blueR);
-	rend.addPrimitive(lightG);
-	//rend.addPrimitive(greem1);
-	//rend.addPrimitive(greem2);
+	rend.addPrimitive(blueR);
+
+	rend.addPrimitive(greem1);
+	rend.addPrimitive(greem2);
 
 	rend.setCamera(Point3d{ 50,50,-1000 });
 

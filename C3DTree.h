@@ -25,9 +25,6 @@ public:
 	}
 
 	~C3DTree() {
-		for (int i = 0; i < primitives.size(); ++i) {
-			delete primitives[i];
-		}
 		delete left;
 		delete right;
 	}

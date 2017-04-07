@@ -10,6 +10,12 @@ struct Attributes {
 
 	Attributes() {};
 
+	~Attributes() {
+		if (initTexture) {
+			delete image;
+		}
+	}
+
 	Attributes(Colour colour, bool isSource
 		, long double intensity, double transparency,
 		double reflection,double refraction) :colour(colour),
@@ -37,10 +43,12 @@ struct Attributes {
 		int height = image->height();
 		long double xMN = 0.2;
 		long double yMN = 0.2;
-		int red = (int)im((int)round(x / xMN) % width, (int)round(y / yMN) % height, 0, 0);
-		int green = (int)im((int)round(x / xMN) % width, (int)round(y / yMN) % height, 0, 1);
-		int blue = (int)im((int)round(x / xMN) % width, (int)round(y / yMN) % height, 0, 2);
-		return{ red,green,blue };
+		int red = (int)im((int)round(x * xMN) % width, (int)round(y * yMN) % height, 0, 0);
+		int green = (int)im((int)round(x * xMN) % width, (int)round(y * yMN) % height, 0, 1);
+		int blue = (int)im((int)round(x * xMN) % width, (int)round(y * yMN) % height, 0, 2);
+		Colour result{ red,green,blue };
+		result.normalizeColour();
+		return result;
 	}
 
 	Colour colour;
